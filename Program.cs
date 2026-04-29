@@ -20,8 +20,8 @@ builder.Services
     .WithStdioServerTransport()   // input/output (console) - use the existing API name
     .WithTools<FixCodeTool>(); // specify the tool type parameter to satisfy the generic method
 
-builder.Services.AddHttpClient();
+var app = builder.Build();
 
-builder.Services.AddHttpClient<AiService>();
+Console.WriteLine("MCP Server Started..."); // debug
 
-await builder.Build().RunAsync();
+app.Run();
